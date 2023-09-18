@@ -1,3 +1,4 @@
+import { getBirthDay } from "./getBirthday"
 import { getSex } from "./getSex"
 
 export const getPeselData = (inputPesel) => {
@@ -47,6 +48,8 @@ export const getPeselData = (inputPesel) => {
 
       console.log(10 - Number(String(checkSum).slice(-1)) === Number(inputPesel[inputPesel.length - 1]))
       console.log(getSex(inputPesel[inputPesel.length - 2]))
+      console.log(getBirthDay('870507'))
+
     } else {
       throw new Error(errorMessage)
     }
