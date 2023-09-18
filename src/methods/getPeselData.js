@@ -8,34 +8,22 @@ export const getPeselData = (inputPesel) => {
     const calcCheckSum = pesel.split('').map((number, index) => {
       switch (index) {
         case 0:
-          number = number * 1
-          break
-        case 1:
-          number = number * 3
-          break
-        case 2:
-          number = number * 7
-          break
-        case 3:
-          number = number * 9
-          break
         case 4:
-          number = number * 1
-          break
-        case 5:
-          number = number * 3
-          break
-        case 6:
-          number = number * 7
-          break
-        case 7:
-          number = number * 9
-          break
         case 8:
           number = number * 1
           break
+        case 1:
+        case 5:
         case 9:
           number = number * 3
+          break
+        case 2:
+        case 6:
+          number = number * 7
+          break
+        case 3:
+        case 7:
+          number = number * 9
           break
       }
       return !isNaN(Number(number)) ? Number(String(number).slice(-1)) : `${index}: false`
