@@ -76,7 +76,7 @@ export const getBirthDay = (date) => {
 
   try {
     if (Date.prototype.toString.call(birthDay) !== 'Invalid Date') {
-      const timeGap = (birthDay.getTime() - today.getTime()) / (1000 * 3600 * 24)
+      const timeGap = (today.getTime() - birthDay.getTime()) / (1000 * 3600 * 24)
       if (timeGap > 0) {
         return `${dateDetails[4] !== '0' || ''}${dateDetails[5]} ${getMonth(dateDetails[2] + dateDetails[3])} ${getCentury(dateDetails[2])}`
       } else {

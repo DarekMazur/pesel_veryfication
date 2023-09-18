@@ -36,7 +36,7 @@ export const getPeselData = (inputPesel) => {
 
       console.log(10 - Number(String(checkSum).slice(-1)) === Number(inputPesel[inputPesel.length - 1]))
       console.log(getSex(inputPesel[inputPesel.length - 2]))
-      console.log(getBirthDay('870507'))
+      console.log(getBirthDay(inputPesel.split('').slice(0,6).join('')))
 
     } else {
       throw new Error(errorMessage)
