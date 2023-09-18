@@ -43,5 +43,19 @@ export const getBirthDay = (date) => {
     return year
   }
 
-  return `${dateDetails[4]}${dateDetails[5]} lorem ${getCentury(dateDetails[2])}`
+  const getMonth = (monthNumber) => {
+    const month = () => {
+      const monthName = monthNumber.split('')[0] % 2 === 0 ? (
+        months[monthNumber.split('')[1]]
+      ) : (
+        months['1' + monthNumber.split('')[1]]
+      )
+
+      return monthName
+    }
+
+    return month()
+  }
+
+  return `${dateDetails[4] !== '0' || ''}${dateDetails[5]} ${getMonth(dateDetails[2] + dateDetails[3])} ${getCentury(dateDetails[2])}`
 }
