@@ -5,7 +5,8 @@ function App() {
     <>
       <p>Hello world!</p>
       <p>Temp</p>
-      {getPeselData('87050707477')}
+      {getPeselData('94111366519')}
+      {getPeselData('23300428543')}
     </>
   )
 }
