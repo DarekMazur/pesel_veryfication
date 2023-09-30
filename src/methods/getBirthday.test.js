@@ -21,4 +21,11 @@ describe('Get birthday', () => {
 		expect(getBirthDay('052307')).toContain('7 ')
 		expect(getBirthDay('422823')).toBe('Date of birth must be before today')
 	})
+
+	it('getBirthday returns full date', () => {
+		expect(getBirthDay('870507')).toBe('7 maja 1987')
+		expect(getBirthDay('750419')).toBe('19 kwietnia 1975')
+		expect(getBirthDay('052307')).toBe('7 marca 2005')
+		expect(getBirthDay('422823')).toBe('Date of birth must be before today')
+	})
 })
