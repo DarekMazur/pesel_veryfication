@@ -5,8 +5,10 @@ function App() {
     <>
       <p>Hello world!</p>
       <p>Temp</p>
-      {getPeselData('94111366519')}
-      {getPeselData('23300428543')}
+      {console.log(getPeselData('94111366519'))}
+      {console.log(getPeselData('23300428543'))}
+      {console.log(getPeselData('9411h366529'))}
+      {console.log(getPeselData('9411h366529s'))}
     </>
   )
 }
