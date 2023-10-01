@@ -1,7 +1,12 @@
 export const getPeselData = (inputPesel) => {
   const errorMessage = 'PESEL is not valid'
+  const errorType = 'PESEL should be number'
   const peselValidate = (pesel) => {
     if (pesel.length === 11) {
+      if (isNaN(Number(pesel))) {
+        return errorType
+      }
+
       const calcCheckSum = pesel.split('').map((number, index) => {
         switch (index) {
           case 0:
@@ -24,7 +29,7 @@ export const getPeselData = (inputPesel) => {
             break
         }
 
-        return !isNaN(Number(number)) ? Number(String(number).slice(-1)) : false
+        return Number(String(number).slice(-1))
       })
 
       calcCheckSum.pop()
@@ -34,11 +39,8 @@ export const getPeselData = (inputPesel) => {
 
       const isValid = 10 - Number(String(checkSum).slice(-1)) === Number(inputPesel[inputPesel.length - 1])
 
-      if (isValid) {
-        return isValid
-      } else {
-        throw new Error(errorMessage)
-      }
+      return isValid || errorMessage
+
     } else {
       throw new Error(errorMessage)
     }
