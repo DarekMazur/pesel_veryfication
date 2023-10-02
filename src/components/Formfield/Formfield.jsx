@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 
 const FormField = ({id, name, value, onChange, label, type = 'text'}) => {
 	return(
-			<>
-				<input id={id} name={name} value={value} onChange={onChange} type={type}/>
-				<label htmlFor={id}>{label}</label>
-			</>
-		)
+		<>
+			<input id={id} name={name} value={value} onChange={onChange} type={type}/>
+			<label htmlFor={id}>{label}</label>
+		</>
+	)
 }
 
 export default FormField
