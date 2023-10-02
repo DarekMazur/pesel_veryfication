@@ -1,10 +1,11 @@
 import { getPeselData } from "./methods/getPeselData"
-import {getBirthDay} from "./methods/getBirthday.js";
-import {getSex} from "./methods/getSex.js";
-import {useState} from "react";
-import {Wrapper} from './components/Wrapper/Wrapper.styles.js'
-import FormField from "./components/Formfield/Formfield.jsx";
-import {Form} from "./components/Form/Form.styles.js";
+import { getBirthDay } from "./methods/getBirthday.js";
+import { getSex } from "./methods/getSex.js";
+import { useState } from "react";
+import { Wrapper } from './components/Wrapper/Wrapper.styles.js'
+import FormField from "./components/FormField/FormField.jsx";
+import { Form } from "./components/Form/Form.styles.js";
+import {Button} from "./components/Button/Button.styles.js";
 
 const App = () => {
   const initialState = {
@@ -32,7 +33,7 @@ const App = () => {
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <FormField onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
-          <button type='submit'>Check</button>
+          <Button type='submit'>Check</Button>
         </Form>
 
         <p>{input ? `${input}: ${getPeselData(input) === true ? 'PESEL is valid' : getPeselData(input)}` : initialState.validationStatus}</p>
