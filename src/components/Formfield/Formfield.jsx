@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Formfield = ({id, name, value, onChange, label, type = 'text'}) => {
+const FormField = ({id, name, value, onChange, label, type = 'text'}) => {
 	return(
 			<>
 				<input id={id} name={name} value={value} onChange={onChange} type={type}/>
@@ -10,9 +10,9 @@ const Formfield = ({id, name, value, onChange, label, type = 'text'}) => {
 		)
 }
 
-export default Formfield
+export default FormField
 
-Formfield.propTypes = {
+FormField.propTypes = {
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,

@@ -3,7 +3,8 @@ import {getBirthDay} from "./methods/getBirthday.js";
 import {getSex} from "./methods/getSex.js";
 import {useState} from "react";
 import {Wrapper} from './components/Wrapper/Wrapper.styles.js'
-import Formfield from "./components/Formfield/Formfield.jsx";
+import FormField from "./components/Formfield/Formfield.jsx";
+import {Form} from "./components/Form/Form.styles.js";
 
 const App = () => {
   const initialState = {
@@ -25,21 +26,21 @@ const App = () => {
     setPesel(initialState.pesel)
   }
 
-    return (
-      <>
-        <h1>Hello world!</h1>
-        <Wrapper>
-          <form onSubmit={handleSubmit}>
-            <Formfield onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
-            <button type='submit'>Check</button>
-          </form>
+  return (
+    <>
+      <h1>Hello world!</h1>
+      <Wrapper>
+        <Form onSubmit={handleSubmit}>
+          <FormField onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
+          <button type='submit'>Check</button>
+        </Form>
 
-          <p>{input ? `${input}: ${getPeselData(input) === true ? 'PESEL is valid' : getPeselData(input)}` : initialState.validationStatus}</p>
-          <p>{input && getPeselData(input) === true ? `Day of birth: ${getBirthDay(input.split('').slice(0, 6).join(''))}` : initialState.birthday}</p>
-          <p>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</p>
-        </Wrapper>
-      </>
-    )
+        <p>{input ? `${input}: ${getPeselData(input) === true ? 'PESEL is valid' : getPeselData(input)}` : initialState.validationStatus}</p>
+        <p>{input && getPeselData(input) === true ? `Day of birth: ${getBirthDay(input.split('').slice(0, 6).join(''))}` : initialState.birthday}</p>
+        <p>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</p>
+      </Wrapper>
+    </>
+  )
 }
 
 export default App
