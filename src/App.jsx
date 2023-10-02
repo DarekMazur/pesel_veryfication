@@ -1,18 +1,45 @@
 import { getPeselData } from "./methods/getPeselData"
+import {getBirthDay} from "./methods/getBirthday.js";
+import {getSex} from "./methods/getSex.js";
+import {useState} from "react";
 
-function App() {
+const App = () => {
+  const initialState = {
+    pesel: '',
+    validationStatus: null,
+    birthday: null,
+    sex: null
+  }
+  const [pesel, setPesel] = useState('')
+  const [input, setInput] = useState('')
+
+  const handleInputChange = (e)=> {
+    setPesel(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setInput(pesel)
+    setPesel(initialState.pesel)
+  }
+
     return (
-    <>
-      <p>Hello world!</p>
-      <p>Temp</p>
-      {console.log(getPeselData('94111366519'))}
-      {console.log(getPeselData('23300428543'))}
-      {console.log(getPeselData('23300428343'))}
-      {console.log(getPeselData('9411h366529'))}
-      {console.log(getPeselData('9411h366529s'))}
-      {console.log(getPeselData('2330042833'))}
-    </>
-  )
+      <>
+        <h1>Hello world!</h1>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input id='pesel' name='pesel' value={pesel} onChange={handleInputChange}/>
+            <label htmlFor='pesel'>PESEL number</label>
+            <button type='submit'>Check</button>
+          </form>
+        </div>
+        <div>
+          <p>{input ? `${input}: ${getPeselData(input) === true ? 'PESEL is valid' : getPeselData(input)}` : initialState.validationStatus}</p>
+          <p>{input && getPeselData(input) === true ? `Day of birth: ${getBirthDay(input.split('').slice(0, 6).join(''))}` : initialState.birthday}</p>
+          <p>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</p>
+        </div>
+      </>
+    )
 }
 
 export default App
