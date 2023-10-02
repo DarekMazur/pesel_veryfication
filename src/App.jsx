@@ -3,6 +3,7 @@ import {getBirthDay} from "./methods/getBirthday.js";
 import {getSex} from "./methods/getSex.js";
 import {useState} from "react";
 import {Wrapper} from './components/Wrapper/Wrapper.styles.js'
+import Formfield from "./components/Formfield/Formfield.jsx";
 
 const App = () => {
   const initialState = {
@@ -29,8 +30,7 @@ const App = () => {
         <h1>Hello world!</h1>
         <Wrapper>
           <form onSubmit={handleSubmit}>
-            <input id='pesel' name='pesel' value={pesel} onChange={handleInputChange}/>
-            <label htmlFor='pesel'>PESEL number</label>
+            <Formfield onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
             <button type='submit'>Check</button>
           </form>
 
