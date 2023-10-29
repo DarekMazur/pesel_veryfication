@@ -33,7 +33,7 @@ const App = () => {
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <FormField onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
-          <Button type='submit'>Check</Button>
+          <Button type='submit' disabled={false}>Check</Button>
         </Form>
 
         <p>{input ? `${input}: ${getPeselData(input) === true ? 'PESEL is valid' : getPeselData(input)}` : initialState.validationStatus}</p>
