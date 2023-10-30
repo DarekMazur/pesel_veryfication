@@ -10,8 +10,8 @@ import {Result} from "./components/Result/Result.styles.js";
 import {ThemeProvider} from "styled-components";
 import {theme} from "./utils/themes/theme.js";
 import {GlobalStyle} from "./styles/globalStyle.js";
-import {H1} from "./components/H1/H1.styles.js";
-import {year} from "./methods/getYear.js";
+import Footer from "./components/Footer/Footer.jsx";
+import Header from "./components/Header/Header.jsx";
 
 const App = () => {
   const initialState = {
@@ -36,9 +36,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <header>
-        <H1>Hello world!</H1>
-      </header>
+      <Header />
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <FormField onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
@@ -57,9 +55,7 @@ const App = () => {
           <Result>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</Result>
         </Wrapper>
       </Wrapper>
-      <footer>
-        Nerdistry &copy; {year}
-      </footer>
+      <Footer />
     </ThemeProvider>
   )
 }
