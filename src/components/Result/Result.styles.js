@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Result = styled.p`
 	width: 380px;
-	font-size: 18px;
+	font-size: ${({theme}) => theme.fontSize.l};
 		
 	span {
-		font-weight: 800;	
+		font-weight: ${({theme}) => theme.fontWeight.fat};	
     color: ${({isValid, theme}) => isValid ? theme.colors.green : theme.colors.red}
 	}
 `

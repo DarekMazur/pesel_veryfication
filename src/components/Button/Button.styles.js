@@ -3,19 +3,19 @@ import styled from "styled-components";
 export const Button = styled.button`
     width: 150px;
     height: 40px;
-    background: #95B2B8;
-    border-color: #95B2B8;
+    background: ${({theme}) => theme.colors.blue};
+    border-color: ${({theme}) => theme.colors.blue};
     border-style: none;
-    box-shadow: #120309a3 5px 5px 7px;
-    color: #120309;
+    box-shadow: ${({theme}) => theme.colors.blackAlpha} 5px 5px 7px;
+    color: ${({theme}) => theme.colors.black};
 		margin: 0 5px;
-		font-size: 16px;
+		font-size: ${({theme}) => theme.fontSize.m};
 		
 		&:disabled {
-				color: #6A878DFF;
+				color: ${({theme}) => theme.colors.gray};
 		}
 
     &:active {
-        box-shadow: #120309 0 0 0;
+        box-shadow: ${({theme}) => theme.colors.black} 0 0 0;
     }
 `
