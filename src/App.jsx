@@ -35,7 +35,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <H1>Hello world!</H1>
+      <header>
+        <H1>Hello world!</H1>
+      </header>
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <FormField onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
