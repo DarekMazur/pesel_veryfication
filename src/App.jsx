@@ -7,6 +7,9 @@ import FormField from "./components/FormField/FormField.jsx";
 import { Form } from "./components/Form/Form.styles.js";
 import {Button} from "./components/Button/Button.styles.js";
 import {Result} from "./components/Result/Result.styles.js";
+import {ThemeProvider} from "styled-components";
+import {theme} from "./utils/themes/theme.js";
+import {GlobalStyle} from "./styles/globalStyle.js";
 
 const App = () => {
   const initialState = {
@@ -29,7 +32,8 @@ const App = () => {
   }
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <h1>Hello world!</h1>
       <Wrapper>
         <Form onSubmit={handleSubmit}>
@@ -49,7 +53,7 @@ const App = () => {
           <Result>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</Result>
         </Wrapper>
       </Wrapper>
-    </>
+    </ThemeProvider>
   )
 }
 

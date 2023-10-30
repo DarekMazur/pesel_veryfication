@@ -6,6 +6,6 @@ export const Result = styled.p`
 		
 	span {
 		font-weight: 800;	
-    color: ${({isValid}) => isValid ? 'green' : 'red'}
+    color: ${({isValid, theme}) => isValid ? theme.colors.green : theme.colors.red}
 	}
 `
