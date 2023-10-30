@@ -8,9 +8,14 @@ export const theme = {
 		green: '#14b00e',
 		red: '#d9231e',
 	},
+	
+	fonts: {
+		main: '"Montserrat", sans-serif',
+		headers: '"Anton", sans-serif'
+	},
 
 	fontSize: {
-		xl: '3.5rem',
+		xl: '4rem',
 		l: '1.8rem',
 		m: '1.6rem',
 		s: '1.4rem',

@@ -5,6 +5,10 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box; 
 		    font-size: 62.5%;
     }
+    
+    body {
+		    font-family: ${({theme}) => theme.fonts.main};
+    }
 
     *, *::after, *::before {
         box-sizing: inherit;
