@@ -6,6 +6,7 @@ import { Wrapper } from './components/Wrapper/Wrapper.styles.js'
 import FormField from "./components/FormField/FormField.jsx";
 import { Form } from "./components/Form/Form.styles.js";
 import {Button} from "./components/Button/Button.styles.js";
+import {Result} from "./components/Result/Result.styles.js";
 
 const App = () => {
   const initialState = {
@@ -36,9 +37,17 @@ const App = () => {
           <Button type='submit' disabled={false}>Check</Button>
         </Form>
 
-        <p>{input ? `${input}: ${getPeselData(input) === true ? 'PESEL is valid' : getPeselData(input)}` : initialState.validationStatus}</p>
-        <p>{input && getPeselData(input) === true ? `Day of birth: ${getBirthDay(input.split('').slice(0, 6).join(''))}` : initialState.birthday}</p>
-        <p>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</p>
+        <Wrapper>
+          <Result isValid={getPeselData(input) === true}>
+            {input ? (
+              <>
+                {input}: <span>{getPeselData(input) === true ? 'PESEL is valid' : getPeselData(input)}</span>
+              </>
+            ) : initialState.validationStatus}
+          </Result>
+          <Result>{input && getPeselData(input) === true ? `Day of birth: ${getBirthDay(input.split('').slice(0, 6).join(''))}` : initialState.birthday}</Result>
+          <Result>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</Result>
+        </Wrapper>
       </Wrapper>
     </>
   )
