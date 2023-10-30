@@ -11,6 +11,7 @@ import {ThemeProvider} from "styled-components";
 import {theme} from "./utils/themes/theme.js";
 import {GlobalStyle} from "./styles/globalStyle.js";
 import {H1} from "./components/H1/H1.styles.js";
+import {year} from "./methods/getYear.js";
 
 const App = () => {
   const initialState = {
@@ -56,6 +57,9 @@ const App = () => {
           <Result>{input && getPeselData(input) === true ? `Gender: ${getSex(input.split('')[input.split('').length - 2])}` : initialState.sex}</Result>
         </Wrapper>
       </Wrapper>
+      <footer>
+        Nerdistry &copy; {year}
+      </footer>
     </ThemeProvider>
   )
 }
