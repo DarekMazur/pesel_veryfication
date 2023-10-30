@@ -5,7 +5,8 @@ export const Input = styled.input`
 	height: 28px;
 	width: 200px;
 	margin: 15px 0;
-	padding: 4px;
+	padding: 4px 7px;
+	font-size: 16px;
 		
 		&:focus + ${Label} {
 			background: transparent;
