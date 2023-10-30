@@ -10,6 +10,7 @@ import {Result} from "./components/Result/Result.styles.js";
 import {ThemeProvider} from "styled-components";
 import {theme} from "./utils/themes/theme.js";
 import {GlobalStyle} from "./styles/globalStyle.js";
+import {H1} from "./components/H1/H1.styles.js";
 
 const App = () => {
   const initialState = {
@@ -34,7 +35,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <h1>Hello world!</h1>
+      <H1>Hello world!</H1>
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <FormField onChange={handleInputChange} name='pesel' id='pesel' label='PESEL number' value={pesel} />
