@@ -1,11 +1,12 @@
 import React from "react";
 import {year} from "../../methods/getYear.js";
+import {StyledFooter} from "./Footer.styles.js";
 
 const Footer = () => {
 	return (
-		<footer>
+		<StyledFooter>
 			Nerdistry &copy; {year}
-		</footer>
+		</StyledFooter>
 	)
 }
 

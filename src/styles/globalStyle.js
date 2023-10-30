@@ -8,6 +8,15 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: ${({theme}) => theme.fonts.main};
+		    margin: 0;
+		    
+		    #root {
+            min-height: 100vh;
+            display:flex;
+				    flex-direction:column;
+				    justify-content: space-between;
+				    margin: 0;
+		    }
     }
 
     *, *::after, *::before {
