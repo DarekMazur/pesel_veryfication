@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
+import {Wrapper} from "../components/Wrapper/Wrapper.styles.js";
 
 export const GlobalStyle = createGlobalStyle`
 		html {
@@ -16,6 +17,11 @@ export const GlobalStyle = createGlobalStyle`
 						flex-direction: column;
 						justify-content: space-between;
 						margin: 0;
+						
+						& > ${Wrapper} {
+								justify-content: flex-start;
+								min-height: 32rem;
+						}
 				}
 		}
 
