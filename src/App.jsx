@@ -11,7 +11,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/themes/theme.js';
 import { GlobalStyle } from './styles/globalStyle.js';
 import Layout from './components/Layout/Layout.jsx';
-import { Alert } from './Alert/Alert.styles.js';
+import { Alert } from './components/Alert/Alert.styles.js';
 
 const App = () => {
 	const initialState = {
