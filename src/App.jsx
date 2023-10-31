@@ -10,8 +10,7 @@ import { Result } from './components/Result/Result.styles.js';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/themes/theme.js';
 import { GlobalStyle } from './styles/globalStyle.js';
-import Footer from './components/Footer/Footer.jsx';
-import Header from './components/Header/Header.jsx';
+import Layout from './components/Layout/Layout.jsx';
 
 const App = () => {
 	const initialState = {
@@ -36,51 +35,53 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<Header />
-			<Wrapper>
-				<Form onSubmit={handleSubmit}>
-					<FormField
-						onChange={handleInputChange}
-						name="pesel"
-						id="pesel"
-						label="PESEL number"
-						value={pesel}
-					/>
-					<Button type="submit" disabled={false}>
-						Check
-					</Button>
-				</Form>
-
+			<Layout>
 				<Wrapper>
-					<Result isValid={getPeselData(input) === true}>
-						{input ? (
-							<>
-								{input}:{' '}
-								<span>
-									{getPeselData(input) === true
-										? 'PESEL is valid'
-										: getPeselData(input)}
-								</span>
-							</>
-						) : (
-							initialState.validationStatus
-						)}
-					</Result>
-					<Result>
-						{input && getPeselData(input) === true
-							? `Day of birth: ${getBirthDay(
-									input.split('').slice(0, 6).join('')
-							  )}`
-							: initialState.birthday}
-					</Result>
-					<Result>
-						{input && getPeselData(input) === true
-							? `Gender: ${getSex(input.split('')[input.split('').length - 2])}`
-							: initialState.sex}
-					</Result>
+					<Form onSubmit={handleSubmit}>
+						<FormField
+							onChange={handleInputChange}
+							name="pesel"
+							id="pesel"
+							label="PESEL number"
+							value={pesel}
+						/>
+						<Button type="submit" disabled={false}>
+							Check
+						</Button>
+					</Form>
+
+					<Wrapper>
+						<Result isValid={getPeselData(input) === true}>
+							{input ? (
+								<>
+									{input}:{' '}
+									<span>
+										{getPeselData(input) === true
+											? 'PESEL is valid'
+											: getPeselData(input)}
+									</span>
+								</>
+							) : (
+								initialState.validationStatus
+							)}
+						</Result>
+						<Result>
+							{input && getPeselData(input) === true
+								? `Day of birth: ${getBirthDay(
+										input.split('').slice(0, 6).join('')
+								  )}`
+								: initialState.birthday}
+						</Result>
+						<Result>
+							{input && getPeselData(input) === true
+								? `Gender: ${getSex(
+										input.split('')[input.split('').length - 2]
+								  )}`
+								: initialState.sex}
+						</Result>
+					</Wrapper>
 				</Wrapper>
-			</Wrapper>
-			<Footer />
+			</Layout>
 		</ThemeProvider>
 	);
 };
