@@ -65,7 +65,7 @@ const Home = ({userLang}) => {
 			{alert ? <Alert>{lang[userLang].home.alert}</Alert> : null}
 
 			<Wrapper>
-				<Result isValid={getPeselData(input) === true}>
+				<Result $valid={getPeselData(input) === true}>
 					{input ? (
 						<>
 							{input}:{' '}
