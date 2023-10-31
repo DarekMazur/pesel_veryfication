@@ -11,6 +11,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/themes/theme.js';
 import { GlobalStyle } from './styles/globalStyle.js';
 import Layout from './components/Layout/Layout.jsx';
+import { Alert } from './Alert/Alert.styles.js';
 
 const App = () => {
 	const initialState = {
@@ -19,17 +20,34 @@ const App = () => {
 		birthday: null,
 		sex: null,
 	};
+
 	const [pesel, setPesel] = useState('');
 	const [input, setInput] = useState('');
+	const [validation, setValidation] = useState(true);
+	const [alert, setAlert] = useState(false);
 
 	const handleInputChange = (e) => {
 		setPesel(e.target.value);
+		if (isNaN(e.target.value) || e.target.value.length < 11) {
+			setValidation(true);
+		} else {
+			setValidation(false);
+		}
+	};
+
+	const handleBlur = () => {
+		if (validation) {
+			setAlert(true);
+		} else {
+			setAlert(false);
+		}
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setInput(pesel);
 		setPesel(initialState.pesel);
+		setValidation(true);
 	};
 
 	return (
@@ -44,11 +62,13 @@ const App = () => {
 							id="pesel"
 							label="PESEL number"
 							value={pesel}
+							onBlur={handleBlur}
 						/>
-						<Button type="submit" disabled={false}>
+						<Button type="submit" disabled={validation}>
 							Check
 						</Button>
 					</Form>
+					{alert ? <Alert>PESEL should contain 11 numbers</Alert> : null}
 
 					<Wrapper>
 						<Result isValid={getPeselData(input) === true}>

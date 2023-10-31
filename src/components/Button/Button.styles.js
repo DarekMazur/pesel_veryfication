@@ -12,7 +12,11 @@ export const Button = styled.button`
 		font-size: ${({theme}) => theme.fontSize.m};
 		
 		&:disabled {
-				color: ${({theme}) => theme.colors.gray};
+				color: ${({theme}) => theme.colors.grey};
+				
+        &:active {
+            box-shadow: ${({theme}) => theme.colors.blackAlpha} 5px 5px 7px;
+        }
 		}
 
     &:active {
