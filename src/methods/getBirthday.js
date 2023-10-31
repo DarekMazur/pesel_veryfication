@@ -1,18 +1,20 @@
-export const getBirthDay = (date) => {
+import {lang} from "../lang/lang.js";
+
+export const getBirthDay = (date, userLang = 'pl') => {
   const dateDetails = date.split('')
   const months = {
-    1: 'stycznia',
-    2: 'lutego',
-    3: 'marca',
-    4: 'kwietnia',
-    5: 'maja',
-    6: 'czerwca',
-    7: 'lipca',
-    8: 'sierpnia',
-    9: 'września',
-    10: 'października',
-    11: 'listopada',
-    12: 'grudnia',
+    1: lang[userLang].verification.birthday.month.jan,
+    2: lang[userLang].verification.birthday.month.feb,
+    3: lang[userLang].verification.birthday.month.mar,
+    4: lang[userLang].verification.birthday.month.apr,
+    5: lang[userLang].verification.birthday.month.may,
+    6: lang[userLang].verification.birthday.month.june,
+    7: lang[userLang].verification.birthday.month.july,
+    8: lang[userLang].verification.birthday.month.aug,
+    9: lang[userLang].verification.birthday.month.sep,
+    10: lang[userLang].verification.birthday.month.oct,
+    11: lang[userLang].verification.birthday.month.nov,
+    12: lang[userLang].verification.birthday.month.dec,
   }
 
   const getCentury = (controlNumber) => {
@@ -80,10 +82,10 @@ export const getBirthDay = (date) => {
       if (timeGap > 0) {
         return `${dateDetails[4] === '0' ? '' : dateDetails[4]}${dateDetails[5]} ${getMonth(dateDetails[2] + dateDetails[3])} ${getCentury(dateDetails[2])}`
       } else {
-        throw new Error('Date of birth must be before today')
+        throw new Error(lang[userLang].verification.birthday.fromFuture)
       }
     } else {
-      throw new Error('Date of birth format is incorrect')
+      throw new Error(lang[userLang].verification.birthday.invalid)
     }
   } catch(err) {
     return err.message
