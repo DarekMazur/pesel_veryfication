@@ -5,11 +5,13 @@ import Layout from './components/Layout/Layout.jsx';
 import Home from "./pages/Home/Home.jsx";
 
 const App = () => {
+	const lang = 'pl'
+	
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<Layout>
-				<Home />
+			<Layout userLang={lang}>
+				<Home userLang={lang} />
 			</Layout>
 		</ThemeProvider>
 	);

@@ -1,6 +1,8 @@
-export const getPeselData = (inputPesel) => {
-  const errorMessage = 'PESEL is not valid'
-  const errorType = 'PESEL should be number'
+import {lang} from "../lang/lang.js";
+
+export const getPeselData = (inputPesel, userLang = 'pl') => {
+  const errorMessage = lang[userLang].verification.data.invalid
+  const errorType = lang[userLang].verification.data.invalidFormat
   const peselValidate = (pesel) => {
     if (pesel.length === 11) {
       if (isNaN(Number(pesel))) {

@@ -8,8 +8,9 @@ import { Form } from '../../components/Form/Form.styles.js';
 import { Button } from '../../components/Button/Button.styles.js';
 import { Result } from '../../components/Result/Result.styles.js';
 import { Alert } from '../../components/Alert/Alert.styles.js';
+import {lang} from "../../lang/lang.js";
 
-const Home = () => {
+const Home = ({userLang}) => {
 	const initialState = {
 		pesel: '',
 		validationStatus: null,
@@ -21,7 +22,7 @@ const Home = () => {
 	const [input, setInput] = useState('');
 	const [validation, setValidation] = useState(true);
 	const [alert, setAlert] = useState(false);
-
+	
 	const handleInputChange = (e) => {
 		setPesel(e.target.value);
 		if (isNaN(e.target.value) || e.target.value.length < 11) {
@@ -53,15 +54,15 @@ const Home = () => {
 					onChange={handleInputChange}
 					name="pesel"
 					id="pesel"
-					label="PESEL number"
+					label={lang[userLang].home.input}
 					value={pesel}
 					onBlur={handleBlur}
 				/>
 				<Button type="submit" disabled={validation}>
-					Check
+					{lang[userLang].home.button}
 				</Button>
 			</Form>
-			{alert ? <Alert>PESEL should contain 11 numbers</Alert> : null}
+			{alert ? <Alert>{lang[userLang].home.alert}</Alert> : null}
 
 			<Wrapper>
 				<Result isValid={getPeselData(input) === true}>
@@ -70,7 +71,7 @@ const Home = () => {
 							{input}:{' '}
 							<span>
 								{getPeselData(input) === true
-									? 'PESEL is valid'
+									? lang[userLang].home.verification.correct
 									: getPeselData(input)}
 							</span>
 						</>
@@ -80,14 +81,14 @@ const Home = () => {
 				</Result>
 				<Result>
 					{input && getPeselData(input) === true
-						? `Day of birth: ${getBirthDay(
+						? `${lang[userLang].home.dayOfBirth}: ${getBirthDay(
 								input.split('').slice(0, 6).join('')
 						  )}`
 						: initialState.birthday}
 				</Result>
 				<Result>
 					{input && getPeselData(input) === true
-						? `Gender: ${getSex(input.split('')[input.split('').length - 2])}`
+						? `${lang[userLang].home.gender.gender}: ${getSex(input.split('')[input.split('').length - 2])}`
 						: initialState.sex}
 				</Result>
 			</Wrapper>

@@ -4,10 +4,10 @@ import Header from '../Header/Header.jsx';
 import Footer from '../Footer/Footer.jsx';
 import {StyledLayout} from "./Layout.styles.js";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, userLang }) => {
 	return (
 		<StyledLayout>
-			<Header />
+			<Header userLang={userLang} />
 			<main>{children}</main>
 			<Footer />
 		</StyledLayout>

@@ -1,7 +1,9 @@
-export const getSex = (digit) => {
+import {lang} from "../lang/lang.js";
+
+export const getSex = (digit, userLang = 'pl') => {
   if (digit % 2 === 0) {
-    return 'Female'
+    return lang[userLang].verification.gender.female
   }
 
-  return 'Male'
+  return lang[userLang].verification.gender.male
 }
