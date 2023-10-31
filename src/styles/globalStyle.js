@@ -1,5 +1,4 @@
 import {createGlobalStyle} from 'styled-components';
-import {Wrapper} from "../components/Wrapper/Wrapper.styles.js";
 
 export const GlobalStyle = createGlobalStyle`
 		html {
@@ -10,19 +9,6 @@ export const GlobalStyle = createGlobalStyle`
 		body {
 				font-family: ${({theme}) => theme.fonts.main};
 				margin: 0;
-
-				#root {
-						min-height: 100vh;
-						display: flex;
-						flex-direction: column;
-						justify-content: space-between;
-						margin: 0;
-						
-						& > ${Wrapper} {
-								justify-content: flex-start;
-								min-height: 32rem;
-						}
-				}
 		}
 
 		*, *::after, *::before {

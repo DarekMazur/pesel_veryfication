@@ -4,10 +4,10 @@ import {Input} from "../Input/Input.styles.js";
 import {StyledFormField} from "./FormField.styles.js";
 import {Label} from "../Label/Label.styles.js";
 
-const FormField = ({id, name, value, onChange, label, type = 'text'}) => {
+const FormField = ({id, onBlur, name, value, onChange, label, type = 'text'}) => {
 	return(
 		<StyledFormField>
-			<Input id={id} name={name} value={value} onChange={onChange} type={type}/>
+			<Input onBlur={onBlur} id={id} name={name} value={value} onChange={onChange} type={type}/>
 			<Label htmlFor={id}>{label}</Label>
 		</StyledFormField>
 	)
